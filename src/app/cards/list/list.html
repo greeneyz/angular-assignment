@@ -1,8 +1,28 @@
-<h2>Cards
-  <button class="btn btn-primary pull-right" ng-click="$ctrl.create()">Add contact</button>
-</h2>
+<h2>Contact Cards</h2>
+<input ng-model="query" type="text" placeholder="Filter by" autofocus >
 
-<!--<div ui-grid="$ctrl.grid" class="grid"
-     ui-grid-auto-resize
-     ui-grid-exporter
-></div>-->
+<div >
+    <div class="row" >
+        <div ng-repeat="card in $ctrl.cards | filter:{isActive:true} | filter:query | orderBy: 'firstName' " style="padding-top: 5px" class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <h2>{{card.firstName}}&nbsp{{card.surName}}</h2>
+                        <i class="glyphicon glyphicon-phone"></i><small><cite title="Phone">{{card.phone}}</cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-briefcase"></i> {{card.company}}
+                            <br />
+
+                            <i class="glyphicon glyphicon-map-marker"></i> Location: {{card.state}}</p>
+                     </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>About:</h4><p style="text-align:justify"> {{card.about}} </p>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
