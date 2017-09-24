@@ -1,28 +1,33 @@
-<h2>Contact Cards</h2>
-<input ng-model="query" type="text" placeholder="Filter by" autofocus >
+<h2 class="text-center alert alert-success">Contact Cards</h2>
+<input class="text-center text-info" ng-model="query" type="text" placeholder="Search" autofocus >
 
-<div >
+<div>
     <div class="row" >
-        <div ng-repeat="card in $ctrl.cards | filter:{isActive:true} | filter:query | orderBy: 'firstName' " style="padding-top: 5px" class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
+        <div ng-repeat="card in $ctrl.cards | filter:{isActive:true} | filter:query | orderBy: 'firstName' " class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm contact-container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <h2>{{card.firstName}}&nbsp{{card.surName}}</h2>
+                        <h2>{{card.firstName}}&nbsp
+                            {{card.surName}}
+                        </h2>
                         <i class="glyphicon glyphicon-phone"></i><small><cite title="Phone">{{card.phone}}</cite></small>
-                        <p>
+                        <p class ="card-location">
                             <i class="glyphicon glyphicon-briefcase"></i> {{card.company}}
                             <br />
-
-                            <i class="glyphicon glyphicon-map-marker"></i> Location: {{card.state}}</p>
+                            <i class="glyphicon glyphicon-map-marker"></i> {{card.state}}
+                        </p>
                      </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4>About:</h4><p style="text-align:justify"> {{card.about}} </p>
+                        <h4>
+                            About:
+                            <hr />
+                        </h4>
+                        <p style="text-align:justify"> {{card.about | limitTo: 120 }} </p>
+                        <hr />
                     </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 </div>

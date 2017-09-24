@@ -1,0 +1,26 @@
+/*
+    This has been created to check external stylesheet implementation with angular app
+    Though There is scss file where styles could be added as well
+*/
+.body {
+    background: gray;
+}
+
+.contact-container {
+    background: #e8e0da;
+    padding: 10px;
+    max-height: 25%;
+    border: 5px solid #d4d3d5;   
+}
+
+.contact-container h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: darkblue;
+    white-space: nowrap;
+    padding: 5px 0;
+}
+
+.contact-container .card-location {
+    white-space: nowrap;
+}
